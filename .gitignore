@@ -1,3 +1,6 @@
+# Prevent api_key from being pushed
+api_key.py
+
 ### OSX ###
 .DS_Store
 .AppleDouble

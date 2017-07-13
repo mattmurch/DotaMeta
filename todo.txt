@@ -1,0 +1,19 @@
+CODING
+- how to display (start with terminal), move to web?
+- use api to build dataset
+- train model on dataset to predict best heros while drafting (decision tree -> neural network?)
+    - figure out how to test if the model is doing a good job (k folds)
+    
+DOTA
+- maybe recommend multiple heros (in case teammates cant play best hero)
+- maybe separate by cluster (region) (maybe query only certain regions)
+- discount games with abandons
+- separate by mmr bracket (dont query low mmr brackets)
+- grab all games with a start time after (or a week after) the first patch
+- only query certain game modes (captains mode and maybe all pick)
+
+- look into match_id retrieval
+    - are they sequential?
+    - get only desired match_ids (e.g. captains mode, US East/West, > 4000 mmr avg)
+    
+- look into player specific recommendations based on player history
