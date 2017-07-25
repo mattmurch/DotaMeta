@@ -3,6 +3,11 @@ import os
 
 from api_key import API_KEY
 
+"""
+Notes:
+    -api docs: http://dota2api.readthedocs.io/en/latest/responses.html#status-code-mappings
+"""
+
 api = dota2api.Initialise(API_KEY)
 
 #~ top = api.get_top_live_games()
@@ -13,7 +18,6 @@ match = {'dire_score': 37, 'dire_captain': 397974493, 'engine': 1, 'barracks_sta
 
 #All Pick game
 #~ match = api.get_match_details(match_id=3313305176)
-
 
 def get_draft(match):
     #Only works for captains mode games
