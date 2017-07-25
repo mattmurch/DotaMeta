@@ -17,3 +17,8 @@ DOTA
     - get only desired match_ids (e.g. captains mode, US East/West, > 4000 mmr avg)
     
 - look into player specific recommendations based on player history
+
+
+IN PREDICTIONS FILE:
+- get SQL call to query all games where hero picks match the current state. Then return the next pick with the highest win rate
+- use bandit algorithm to strengthen our predictions on the games we play using the application

@@ -20,7 +20,7 @@ def create_connection(db_file):
     return None
  
  
-def select_all_tasks(conn):
+def select_all(conn):
     """
     Query all rows in the table table
     :param conn: the Connection object
@@ -35,7 +35,7 @@ def select_all_tasks(conn):
         print(row)
  
  
-def select_task_by_priority(conn, priority):
+def select_next_best_pick(conn, draft):
     """
     Query hero by priority
     :param conn: the Connection object
@@ -43,8 +43,12 @@ def select_task_by_priority(conn, priority):
     :return:
     """
     cur = conn.cursor()
-    cur.execute("SELECT * FROM table WHERE priority=?", (priority,))
- 
+    cur.execute("""DECLARE @cnt INT = 0;
+                            WHILE @cnt < ?
+                            BEGIN
+                                SELECT COUNT(win) FROM table WHERE pick_(@cnt+1)=?
+                                SET @cnt = @cnt + 1;
+                                END;""", (len(draft),))
     rows = cur.fetchall()
  
     for row in rows:
@@ -55,11 +59,11 @@ def main():
     # create a database connection
     conn = create_connection(SQL_DATABASE_PATH)
     with conn:
-        print("1. Query task by priority:")
-        select_task_by_priority(conn,1)
+        print("Getting next best pick")
+        select_next_best_pickconn,1)
  
-        print("2. Query all tasks")
-        select_all_tasks(conn)
+        print("2. Query all")
+        select_all(conn)
  
  
 if __name__ == '__main__':
