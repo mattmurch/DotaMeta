@@ -6,7 +6,7 @@ __version__ = '0.0.0'
 
 setup(name='DotaMeta',
       version=__version__,
-      install_requires=['certifi==2017.4.17',
+      install_requires=['certifi==2022.12.7',
                     'chardet==3.0.4',
                     'dota2api==1.3.3',
                     'idna==2.5',
